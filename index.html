@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StickerStore | Etiquetas e Embalagens</title>
+  <meta name="description" content="Etiquetas adesivas, sacolas e kits promocionais de alta qualidade">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== CSS GLOBAL ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f8f9fc; color: #1e2a3a; }
+    a { text-decoration: none; color: inherit; }
+    .conteiner { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+    .top-bar { background: #2c3e50; color: #ecf0f1; font-size: 13px; padding: 8px 0; }
+    .top-bar .conteiner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .social-links a { color: #ecf0f1; margin-right: 16px; font-size: 14px; transition: opacity 0.2s; }
+    .social-links a:hover { opacity: 0.8; }
+    .contact-links i { margin-right: 6px; }
+    .contact-links a { margin-left: 20px; color: #ecf0f1; }
+    .main-header { background: white; padding: 20px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .header-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .logo a { font-size: 28px; font-weight: 800; color: #1e466e; letter-spacing: -0.5px; }
+    .logo span { color: #2c9b77; }
+    .search-bar { flex: 1; max-width: 400px; display: flex; border: 1px solid #ddd; border-radius: 40px; overflow: hidden; background: #fff; }
+    .search-bar input { flex: 1; padding: 10px 16px; border: none; outline: none; font-size: 14px; }
+    .search-bar button { background: #1e466e; border: none; padding: 0 18px; color: white; cursor: pointer; transition: background 0.2s; }
+    .search-bar button:hover { background: #2c9b77; }
+    .cart-icon { position: relative; font-size: 24px; color: #1e466e; }
+    .cart-count { position: absolute; top: -8px; right: -12px; background: #2c9b77; color: white; font-size: 11px; font-weight: bold; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .main-nav { background: #1e2a3a; margin-top: 0; }
+    .nav-menu { display: flex; list-style: none; gap: 32px; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-menu li a { display: inline-block; padding: 14px 0; color: #ecf0f1; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+    .nav-menu li a:hover { color: #2c9b77; }
+    .breadcrumbs { margin: 24px 0 16px; font-size: 13px; color: #5a6e7c; }
+    .breadcrumbs a { color: #1e466e; }
+    .hero { background: linear-gradient(135deg, #1e466e, #2c9b77); color: white; padding: 60px 20px; border-radius: 24px; text-align: center; margin: 20px 0; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 16px; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 24px; }
+    .btn { display: inline-block; background: white; color: #1e466e; padding: 12px 28px; border-radius: 40px; font-weight: 600; transition: all 0.2s; }
+    .btn:hover { background: #eef2f6; transform: translateY(-2px); }
+    .section-title { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: #1e2a3a; border-left: 5px solid #2c9b77; padding-left: 16px; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-bottom: 48px; }
+    .category-card { background: white; border-radius: 20px; padding: 24px; text-align: center; transition: transform 0.2s; border: 1px solid #edf2f7; }
+    .category-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.05); }
+    .category-card i { font-size: 48px; color: #2c9b77; margin-bottom: 16px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .product-card { background: white; border-radius: 16px; overflow: hidden; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid #edf2f7; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    .product-img { background: #f9fafb; text-align: center; padding: 20px; height: 200px; display: flex; align-items: center; justify-content: center; }
+    .product-img img { max-width: 100%; max-height: 160px; object-fit: contain; }
+    .product-info { padding: 16px; }
+    .product-name { font-weight: 600; font-size: 15px; margin-bottom: 8px; color: #1e2a3a; line-height: 1.4; }
+    .price { font-weight: 700; font-size: 18px; color: #2c9b77; margin: 8px 0; }
+    .btn-buy { display: inline-block; background: #1e466e; color: white; padding: 8px 12px; border-radius: 30px; font-size: 13px; font-weight: 500; margin-top: 8px; text-align: center; width: 100%; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn-buy:hover { background: #2c9b77; }
+    footer { background: #1e2a3a; color: #cbd5e1; margin-top: 60px; padding-top: 48px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 40px; }
+    .footer-col h4 { color: white; margin-bottom: 16px; font-size: 18px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: #cbd5e1; transition: color 0.2s; }
+    .footer-col a:hover { color: #2c9b77; }
+    .footer-bottom { border-top: 1px solid #2d3e4e; text-align: center; padding: 20px 0; font-size: 13px; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+    .modal-content { background: white; max-width: 500px; width: 90%; border-radius: 20px; padding: 24px; position: relative; }
+    .modal-header { display: flex; justify-content: space-between; margin-bottom: 16px; }
+    .close-modal { background: none; border: none; font-size: 24px; cursor: pointer; }
+    .form-group { margin-bottom: 16px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+    .btn-submit { background: #1e466e; color: white; border: none; padding: 12px; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; }
+    @media (max-width: 768px) {
+      .header-grid { flex-direction: column; align-items: stretch; }
+      .search-bar { max-width: 100%; }
+      .nav-menu { justify-content: center; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="conteiner">
+    <div class="social-links">
+      <a href="https://facebook.com/stickerstore" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/stickerstore" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/stickerstore" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="contact-links">
+      <a href="#" id="openContactModal"><i class="far fa-comment-dots"></i> Fale Conosco</a>
+    </div>
+  </div>
+</div>
+
+<div class="main-header">
+  <div class="conteiner">
+    <div class="header-grid">
+      <div class="logo">
+        <a href="index.html">Sticker<span>Store</span></a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="O que você procura?">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <a href="carrinho.html" class="cart-icon">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main-nav">
+  <div class="conteiner">
+    <ul class="nav-menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="etiquetas-impressao.html">Etiquetas para Impressão</a></li>
+      <li><a href="etiquetas-adesivas.html">Etiquetas Adesivas</a></li>
+      <li><a href="sacolas-embalagens.html">Sacolas e Embalagens</a></li>
+      <li><a href="kits-promocionais.html">Kits Promocionais</a></li>
+      <li><a href="promocoes.html">Promoções</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="conteiner">
+  <div class="hero">
+    <h1>Etiquetas que encantam seus clientes</h1>
+    <p>Qualidade, design e personalização para a sua marca.</p>
+    <a href="etiquetas-adesivas.html" class="btn">Conheça os produtos</a>
+  </div>
+
+  <div class="category-grid">
+    <div class="category-card">
+      <i class="fas fa-tag"></i>
+      <h3>Etiquetas Adesivas</h3>
+      <p>Rolos, avulsas e personalizadas</p>
+      <a href="etiquetas-adesivas.html" style="color:#2c9b77;">Ver mais →</a>
+    </div>
+    <div class="category-card">
+      <i class="fas fa-print"></i>
+      <h3>Para Impressão</h3>
+      <p>Folhas A4, papel couchê</p>
+      <a href="etiquetas-impressao.html" style="color:#2c9b77;">Ver mais →</a>
+    </div>
+    <div class="category-card">
+      <i class="fas fa-shopping-bag"></i>
+      <h3>Sacolas</h3>
+      <p>Kraft, papel, personalizadas</p>
+      <a href="sacolas-embalagens.html" style="color:#2c9b77;">Ver mais →</a>
+    </div>
+    <div class="category-card">
+      <i class="fas fa-gift"></i>
+      <h3>Kits Promocionais</h3>
+      <p>Combine etiquetas e sacolas</p>
+      <a href="kits-promocionais.html" style="color:#2c9b77;">Ver mais →</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">Produtos em destaque</h2>
+  <div class="product-grid" id="featured-products">
+    <!-- Os produtos serão carregados via JavaScript -->
+  </div>
+</div>
+
+<footer>
+  <div class="conteiner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sobre a loja</h4>
+        <ul>
+          <li><a href="sobre.html">Quem somos</a></li>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+          <li><a href="termos.html">Termos de Uso</a></li>
+          <li><a href="trocas.html">Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="etiquetas-adesivas.html">Etiquetas Adesivas</a></li>
+          <li><a href="sacolas-embalagens.html">Sacolas Personalizadas</a></li>
+          <li><a href="kits-promocionais.html">Kits Promocionais</a></li>
+          <li><a href="etiquetas-impressao.html">Etiquetas para Impressão</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="ajuda.html">Central de Ajuda</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes sociais</h4>
+        <ul>
+          <li><a href="https://instagram.com/stickerstore" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://facebook.com/stickerstore" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="conteiner">
+      <p>&copy; StickerStore - Todos os direitos reservados. 2026</p>
+      <div style="margin-top: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <i class="fab fa-cc-visa fa-2x"></i>
+        <i class="fab fa-cc-mastercard fa-2x"></i>
+        <i class="fab fa-cc-amex fa-2x"></i>
+        <i class="fas fa-barcode fa-2x"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Fale Conosco</h3>
+      <button class="close-modal">&times;</button>
+    </div>
+    <form id="contactForm">
+      <div class="form-group"><input type="text" placeholder="Seu nome" required></div>
+      <div class="form-group"><input type="email" placeholder="Seu e-mail" required></div>
+      <div class="form-group"><textarea rows="4" placeholder="Sua mensagem"></textarea></div>
+      <button type="submit" class="btn-submit">Enviar mensagem</button>
+      <p style="font-size:12px; margin-top:12px; color:#666;">Responderemos em até 24h úteis.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ---------- PRODUTOS (base de dados) ----------
+  const produtos = [
+    { id: 1, nome: "Etiquetas Adesivas Páscoa - 120 un", preco: 14.90, categoria: "etiquetas-adesivas", img: "https://placehold.co/300x300/EAEFF4/2c9b77?text=Páscoa", destaque: true },
+    { id: 2, nome: "Etiqueta Adesiva MX2316 - Rolo 500 un", preco: 28.90, categoria: "etiquetas-adesivas", img: "https://placehold.co/300x300/EAEFF4/2c9b77?text=MX2316", destaque: true },
+    { id: 3, nome: "Etiqueta Splash Promoção - 50un", preco: 9.90, categoria: "etiquetas-adesivas", img: "https://placehold.co/300x300/EAEFF4/2c9b77?text=Splash", destaque: true },
+    { id: 4, nome: "Etiqueta Bolinha 15mm - 504 un", preco: 3.50, categoria: "etiquetas-adesivas", img: "https://placehold.co/300x300/EAEFF4/2c9b77?text=Bolinha", destaque: false },
+    { id: 5, nome: "Lacre de Sacola 'Entrego, confio'", preco: 7.90, categoria: "sacolas-embalagens", img: "https://placehold.co/300x300/EAEFF4/2c9b77?text=Lacre", destaque: false }
+    // Adicione mais conforme necessário
+  ];
+
+  // Função para renderizar produtos em um container
+  function renderProducts(containerId, filterFn = null) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let lista = filterFn ? produtos.filter(filterFn) : produtos;
+    container.innerHTML = lista.map(p => `
+      <div class="product-card">
+        <div class="product-img">
+          <img src="${p.img}" alt="${p.nome}">
+        </div>
+        <div class="product-info">
+          <div class="product-name">${p.nome}</div>
+          <div class="price">R$ ${p.preco.toFixed(2)}</div>
+          <button class="btn-buy" data-id="${p.id}" data-nome="${p.nome}" data-preco="${p.preco}">Ver mais</button>
+        </div>
+      </div>
+    `).join('');
+    // Atribui evento de "Ver mais" (redireciona para detalhe)
+    document.querySelectorAll(`#${containerId} .btn-buy`).forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = btn.getAttribute('data-id');
+        window.location.href = `produto-detalhe.html?id=${id}`;
+      });
+    });
+  }
+
+  // Atualiza contador do carrinho em todas as páginas
+  function atualizarCarrinhoCount() {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+    document.querySelectorAll('.cart-count').forEach(el => el.innerText = totalItens);
+  }
+
+  // Carregar produtos em destaque na home
+  renderProducts('featured-products', p => p.destaque === true);
+  atualizarCarrinhoCount();
+
+  // Modal de contato
+  const modal = document.getElementById('contactModal');
+  document.querySelectorAll('#openContactModal').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); modal.style.display = 'flex'; });
+  });
+  document.querySelector('.close-modal')?.addEventListener('click', () => { modal.style.display = 'none'; });
+  window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Mensagem enviada com sucesso!');
+    modal.style.display = 'none';
+    e.target.reset();
+  });
+</script>
+</body>
+</html>
