@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etiquetas Adesivas | StickerStore</title>
+  <!-- Mesmos links de CSS e estilo global do index.html -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Copie todo o CSS do index.html aqui */
+  </style>
+</head>
+<body>
+<!-- Copie o top-bar, main-header, main-nav e footer do index.html (não repetirei para economizar espaço) -->
+
+<div class="conteiner">
+  <div class="breadcrumbs">
+    <a href="index.html">Início</a> &nbsp;/&nbsp;
+    <strong>Etiquetas Adesivas</strong>
+  </div>
+  <h1 class="page-title">Etiquetas Adesivas</h1>
+  <div class="product-grid" id="category-products"></div>
+</div>
+
+<footer>...</footer>
+<div id="contactModal" class="modal">...</div>
+
+<script>
+  // Mesma base de produtos do index (ou importe de um arquivo externo)
+  const produtos = [ /* igual ao index */ ];
+
+  function renderProducts(containerId, filterFn = null) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let lista = filterFn ? produtos.filter(filterFn) : produtos;
+    container.innerHTML = lista.map(p => `
+      <div class="product-card">
+        <div class="product-img"><img src="${p.img}" alt="${p.nome}"></div>
+        <div class="product-info">
+          <div class="product-name">${p.nome}</div>
+          <div class="price">R$ ${p.preco.toFixed(2)}</div>
+          <button class="btn-buy" data-id="${p.id}">Ver mais</button>
+        </div>
+      </div>
+    `).join('');
+    document.querySelectorAll(`#${containerId} .btn-buy`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.location.href = `produto-detalhe.html?id=${btn.getAttribute('data-id')}`;
+      });
+    });
+  }
+
+  function atualizarCarrinhoCount() { /* mesma do index */ }
+
+  // Filtrar por categoria (exemplo: 'etiquetas-adesivas')
+  renderProducts('category-products', p => p.categoria === 'etiquetas-adesivas');
+  atualizarCarrinhoCount();
+
+  // Modal contato igual ao index
+</script>
+</body>
+</html>
