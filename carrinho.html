@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Carrinho | StickerStore</title>
+  <!-- CSS global igual ao index -->
+  <style>
+    /* mesmo CSS base */
+    .cart-table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; }
+    .cart-table th, .cart-table td { padding: 16px; text-align: left; border-bottom: 1px solid #edf2f7; }
+    .cart-table img { width: 60px; height: auto; }
+    .cart-total { text-align: right; font-size: 20px; font-weight: bold; margin-top: 20px; }
+    .btn-checkout { background: #2c9b77; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 600; border: none; cursor: pointer; }
+    .btn-checkout:hover { background: #1e466e; }
+  </style>
+</head>
+<body>
+<!-- top-bar, main-header, main-nav, footer -->
+
+<div class="conteiner">
+  <div class="breadcrumbs">
+    <a href="index.html">Início</a> &nbsp;/&nbsp; <strong>Carrinho</strong>
+  </div>
+  <h1 class="page-title">Meu Carrinho</h1>
+
+  <div id="cart-container">
+    <table class="cart-table">
+      <thead>
+        <tr><th>Produto</th><th>Preço</th><th>Quantidade</th><th>Subtotal</th><th></th></tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+    <div class="cart-total" id="cart-total"></div>
+    <div style="text-align: right; margin-top: 24px;">
+      <a href="checkout.html" class="btn-checkout" id="checkoutBtn">Finalizar Compra</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function renderCart() {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const tbody = document.getElementById('cart-items');
+    if (carrinho.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Seu carrinho está vazio.</td></tr>';
+      document.getElementById('checkoutBtn').style.display = 'none';
+      document.getElementById('cart-total').innerHTML = '';
+      return;
+    }
+    document.getElementById('checkoutBtn').style.display = 'inline-block';
+    let totalGeral = 0;
+    tbody.innerHTML = carrinho.map((item, index) => {
+      const subtotal = item.preco * item.quantidade;
+      totalGeral += subtotal;
+      return `
+        <tr>
+          <td><img src="${item.img}" alt="${item.nome}" style="width:50px;"> ${item.nome}</td>
+          <td>R$ ${item.preco.toFixed(2)}</td>
+          <td><input type="number" min="1" value="${item.quantidade}" data-id="${item.id}" class="qty-input" style="width:60px;"></td>
+          <td>R$ ${subtotal.toFixed(2)}</td>
+          <td><button class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></button></td>
+        </tr>
+      `;
+    }).join('');
+    document.getElementById('cart-total').innerHTML = `Total: R$ ${totalGeral.toFixed(2)}`;
+
+    // Eventos de alterar quantidade
+    document.querySelectorAll('.qty-input').forEach(input => {
+      input.addEventListener('change', (e) => {
+        const id = parseInt(input.getAttribute('data-id'));
+        let novaQtd = parseInt(input.value);
+        if (isNaN(novaQtd) || novaQtd < 1) novaQtd = 1;
+        let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+        const item = carrinho.find(i => i.id === id);
+        if (item) item.quantidade = novaQtd;
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        renderCart();
+        atualizarCarrinhoCount();
+      });
+    });
+    document.querySelectorAll('.remove-item').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = parseInt(btn.getAttribute('data-id'));
+        let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+        carrinho = carrinho.filter(i => i.id !== id);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        renderCart();
+        atualizarCarrinhoCount();
+      });
+    });
+  }
+
+  function atualizarCarrinhoCount() {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let total = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+    document.querySelectorAll('.cart-count').forEach(el => el.innerText = total);
+  }
+
+  renderCart();
+  atualizarCarrinhoCount();
+
+  // modal contato (copiar do index)
+</script>
+</body>
+</html>
