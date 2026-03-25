@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoções | StickerStore</title>
+  <!-- CSS igual -->
+</head>
+<body>
+<!-- top-bar, main-header, main-nav, footer -->
+
+<div class="conteiner">
+  <div class="breadcrumbs">
+    <a href="index.html">Início</a> &nbsp;/&nbsp;
+    <strong>Promoções</strong>
+  </div>
+  <h1 class="page-title">Produtos em Promoção</h1>
+  <div class="product-grid" id="category-products"></div>
+</div>
+
+<script>
+  const produtos = [ /* mesmo array */ ];
+  renderProducts('category-products', p => p.promocao === true);
+  atualizarCarrinhoCount();
+</script>
+</body>
+</html>
