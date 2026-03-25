@@ -1,514 +1,326 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
-  <title>Etiquetas Adesivas Couchê | StickerStore</title>
-  <meta name="description" content="Etiquetas adesivas Couchê de alta qualidade para sua marca. Diversos tamanhos, pronta entrega e qualidade premium.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ========== CSS GLOBAL ========== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #f8f9fc; color: #1e2a3a; }
-    a { text-decoration: none; color: inherit; }
-    .conteiner { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
-    .top-bar { background: #2c3e50; color: #ecf0f1; font-size: 13px; padding: 8px 0; }
-    .top-bar .conteiner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .social-links a { color: #ecf0f1; margin-right: 16px; font-size: 14px; transition: opacity 0.2s; }
-    .social-links a:hover { opacity: 0.8; }
-    .contact-links i { margin-right: 6px; }
-    .contact-links a { margin-left: 20px; color: #ecf0f1; }
-    .main-header { background: white; padding: 20px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-    .header-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .logo a { font-size: 28px; font-weight: 800; color: #1e466e; letter-spacing: -0.5px; }
-    .logo span { color: #2c9b77; }
-    .search-bar { flex: 1; max-width: 400px; display: flex; border: 1px solid #ddd; border-radius: 40px; overflow: hidden; background: #fff; }
-    .search-bar input { flex: 1; padding: 10px 16px; border: none; outline: none; font-size: 14px; }
-    .search-bar button { background: #1e466e; border: none; padding: 0 18px; color: white; cursor: pointer; transition: background 0.2s; }
-    .search-bar button:hover { background: #2c9b77; }
-    .cart-icon { position: relative; font-size: 24px; color: #1e466e; cursor: pointer; }
-    .cart-count { position: absolute; top: -8px; right: -12px; background: #2c9b77; color: white; font-size: 11px; font-weight: bold; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .main-nav { background: #1e2a3a; margin-top: 0; }
-    .nav-menu { display: flex; list-style: none; gap: 32px; padding: 0; margin: 0; flex-wrap: wrap; }
-    .nav-menu li a { display: inline-block; padding: 14px 0; color: #ecf0f1; font-weight: 500; font-size: 15px; transition: color 0.2s; }
-    .nav-menu li a:hover { color: #2c9b77; }
-    .breadcrumbs { margin: 24px 0 20px; font-size: 14px; color: #5a6e7c; }
-    .breadcrumbs a { color: #1e466e; font-weight: 500; }
-    .breadcrumbs i { margin-right: 6px; }
-    .categoria-header { background: linear-gradient(135deg, #1e466e, #2c9b77); color: white; padding: 48px 20px; border-radius: 28px; text-align: center; margin: 20px 0 32px; }
-    .categoria-header h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 700; }
-    .categoria-header p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
-    .section-title { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: #1e2a3a; border-left: 5px solid #2c9b77; padding-left: 16px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin-bottom: 60px; }
-    .product-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 1px solid #edf2f7; display: flex; flex-direction: column; height: 100%; }
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-    .product-img { background: #fafcff; text-align: center; padding: 20px; height: 210px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f2f5; }
-    .product-img img { max-width: 100%; max-height: 170px; object-fit: contain; transition: transform 0.2s; }
-    .product-card:hover .product-img img { transform: scale(1.02); }
-    .product-info { padding: 18px 16px 20px; flex: 1; display: flex; flex-direction: column; }
-    .product-name { font-weight: 700; font-size: 16px; margin-bottom: 6px; color: #1e2a3a; line-height: 1.3; }
-    .product-desc { font-size: 12px; color: #5a6e7c; line-height: 1.4; margin: 8px 0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    .product-desc i { color: #2c9b77; font-size: 11px; width: 16px; }
-    .price-wrapper { margin: 10px 0 12px; }
-    .old-price { font-size: 13px; color: #8e9eae; text-decoration: line-through; margin-right: 10px; }
-    .current-price { font-weight: 800; font-size: 22px; color: #2c9b77; letter-spacing: -0.3px; }
-    .discount-badge { background: #e74c3c; color: white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 30px; display: inline-block; margin-left: 8px; vertical-align: middle; }
-    .btn-buy { display: inline-block; background: #1e466e; color: white; padding: 10px 12px; border-radius: 40px; font-size: 14px; font-weight: 600; text-align: center; transition: background 0.2s; border: none; cursor: pointer; width: 100%; margin-top: 8px; }
-    .btn-buy:hover { background: #2c9b77; }
-    footer { background: #1e2a3a; color: #cbd5e1; margin-top: 60px; padding-top: 48px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 40px; }
-    .footer-col h4 { color: white; margin-bottom: 16px; font-size: 18px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { color: #cbd5e1; transition: color 0.2s; }
-    .footer-col a:hover { color: #2c9b77; }
-    .footer-bottom { border-top: 1px solid #2d3e4e; text-align: center; padding: 20px 0; font-size: 13px; }
-    .modal, .checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
-    .modal-content, .checkout-content { background: white; max-width: 600px; width: 90%; border-radius: 20px; padding: 24px; position: relative; max-height: 90vh; overflow-y: auto; }
-    .modal-header, .checkout-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 12px; }
-    .close-modal, .close-checkout { background: none; border: none; font-size: 24px; cursor: pointer; }
-    .form-group { margin-bottom: 16px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit; }
-    .btn-submit, .btn-finalizar { background: #1e466e; color: white; border: none; padding: 12px; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; margin-top: 12px; }
-    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-    .cart-item-info { flex: 2; }
-    .cart-item-name { font-weight: 600; }
-    .cart-item-price { color: #2c9b77; }
-    .cart-item-qty { display: flex; align-items: center; gap: 8px; }
-    .cart-item-qty button { background: #eef2fa; border: none; width: 28px; height: 28px; border-radius: 30px; cursor: pointer; font-weight: bold; }
-    .cart-item-remove { color: #e74c3c; cursor: pointer; margin-left: 12px; }
-    .checkout-total { font-size: 20px; font-weight: 800; text-align: right; margin: 16px 0; border-top: 2px solid #ddd; padding-top: 16px; }
-    @media (max-width: 768px) {
-      .header-grid { flex-direction: column; align-items: stretch; }
-      .search-bar { max-width: 100%; }
-      .nav-menu { justify-content: center; gap: 16px; }
-      .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
-      .categoria-header h1 { font-size: 1.8rem; }
-      .product-name { font-size: 14px; }
-      .current-price { font-size: 18px; }
-      .product-desc { font-size: 10px; }
-    }
-    .filtro-info { background: #eef2fa; padding: 12px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; font-size: 14px; color: #1e466e; }
-    .filtro-info i { margin-right: 8px; }
-    .cart-icon-wrapper { position: relative; cursor: pointer; }
-    .cart-summary-badge { position: absolute; top: -8px; right: -12px; background: #2c9b77; color: white; font-size: 11px; font-weight: bold; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  </style>
+  <meta charset="utf-8">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0' name='viewport' />
+  <title>Páscoa - Etiquetas e Acessórios</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="https://cdn.awsli.com.br/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://www.exemplo.com.br/pascoa2026">
+  <meta property="og:title" content="Páscoa - Etiquetas e Acessórios">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Etiquetas e Acessórios">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="robots" content="index, follow">
+  <link rel="shortcut icon" href="#">
+  <link rel="icon" href="#">
+  <meta name="theme-color" content="#490DBD">
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/css/all.min.css?v=4378076" type="text/css">
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/css/tema-escuro.min.css?v=4378076" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Open%20Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/css/bootstrap-responsive.css?v=4378076" type="text/css">
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/css/style-responsive.css?v=4378076">
+  <link rel="stylesheet" href="/tema.css?v=20251108-121031">
+  <script src="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/js/all.min.js?v=4378076"></script>
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/css/slick.min.css" type="text/css">
+  <script src="https://cdn.awsli.com.br/production/static/loja/estrutura/v1/js/slick.min.js?v=4378076"></script>
+  <link rel="stylesheet" href="https://cdn.awsli.com.br/production/static/css/jquery.fancybox.min.css" type="text/css" />
+  <script src="https://cdn.awsli.com.br/production/static/js/jquery/jquery.fancybox.pack.min.js"></script>
+  <link href="//cdn.awsli.com.br/temasv2/4422/__theme_custom.css?v=1753453570" rel="stylesheet" type="text/css">
+  <script src="//cdn.awsli.com.br/temasv2/4422/__theme_custom.js?v=1753453570"></script>
+  <link rel="stylesheet" href="/avancado.css?v=20251108-121031" type="text/css" />
 </head>
-<body>
-<div class="top-bar">
-  <div class="conteiner">
-    <div class="social-links">
-      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-    <div class="contact-links">
-      <a href="#" id="openContactModal"><i class="far fa-comment-dots"></i> Fale Conosco</a>
-    </div>
-  </div>
-</div>
-
-<div class="main-header">
-  <div class="conteiner">
-    <div class="header-grid">
-      <div class="logo">
-        <a href="#">Sticker<span>Store</span></a>
-      </div>
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Buscar etiquetas...">
-        <button id="searchButton"><i class="fas fa-search"></i></button>
-      </div>
-      <div class="cart-icon-wrapper" id="openCheckoutBtn">
-        <i class="fas fa-shopping-bag cart-icon"></i>
-        <span class="cart-count">0</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="main-nav">
-  <div class="conteiner">
-    <ul class="nav-menu">
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Etiquetas para Impressão</a></li>
-      <li><a href="#">Etiquetas Adesivas</a></li>
-      <li><a href="#">Etiquetas Adesivas Couchê</a></li>
-      <li><a href="#">Sacolas e Embalagens</a></li>
-      <li><a href="#">Kits Promocionais</a></li>
-      <li><a href="#">Promoções</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="conteiner">
-  <div class="breadcrumbs">
-    <a href="#"><i class="fas fa-home"></i> Início</a> &nbsp;/&nbsp; 
-    <a href="#">Etiquetas Adesivas</a> &nbsp;/&nbsp; 
-    <strong>Etiquetas Adesivas Couchê</strong>
-  </div>
-
-  <div class="categoria-header">
-    <h1>Etiquetas Adesivas Couchê</h1>
-    <p>Alta qualidade, aderência excepcional e acabamento premium. Perfeitas para produtos, embalagens e identidade visual da sua marca. Pronta entrega em diversos tamanhos.</p>
-  </div>
-
-  <div class="filtro-info">
-    <i class="fas fa-tags"></i> 17 produtos encontrados | Couchê fosco/brilho | Alta definição
-  </div>
-
-  <h2 class="section-title">Produtos em destaque</h2>
-  <div class="product-grid" id="product-list"></div>
-</div>
-
-<footer>
-  <div class="conteiner">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Sobre a loja</h4>
-        <ul>
-          <li><a href="#">Quem somos</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Trocas e Devoluções</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Categorias</h4>
-        <ul>
-          <li><a href="#">Etiquetas Adesivas Couchê</a></li>
-          <li><a href="#">Sacolas Personalizadas</a></li>
-          <li><a href="#">Kits Promocionais</a></li>
-          <li><a href="#">Etiquetas para Impressão</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Atendimento</h4>
-        <ul>
-          <li><a href="#">Central de Ajuda</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">WhatsApp</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Redes sociais</h4>
-        <ul>
-          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
+<body class="pagina-categoria categoria-22574926 tema-transparente">
+  <div class="barra-inicial fundo-secundario">
     <div class="conteiner">
-      <p>&copy; StickerStore - Todos os direitos reservados. 2026 | Produtos de alta qualidade</p>
-      <div style="margin-top: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        <i class="fab fa-cc-visa fa-2x"></i>
-        <i class="fab fa-cc-mastercard fa-2x"></i>
-        <i class="fab fa-cc-amex fa-2x"></i>
-        <i class="fas fa-barcode fa-2x"></i>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Modal Contato -->
-<div id="contactModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3>Fale Conosco</h3>
-      <button class="close-modal">&times;</button>
-    </div>
-    <form id="contactForm">
-      <div class="form-group"><input type="text" placeholder="Seu nome" required></div>
-      <div class="form-group"><input type="email" placeholder="Seu e-mail" required></div>
-      <div class="form-group"><textarea rows="4" placeholder="Sua mensagem"></textarea></div>
-      <button type="submit" class="btn-submit">Enviar mensagem</button>
-      <p style="font-size:12px; margin-top:12px; color:#666;">Responderemos em até 24h úteis.</p>
-    </form>
-  </div>
-</div>
-
-<!-- Modal Checkout -->
-<div id="checkoutModal" class="checkout-modal">
-  <div class="checkout-content">
-    <div class="checkout-header">
-      <h3>Finalizar Pedido</h3>
-      <button class="close-checkout">&times;</button>
-    </div>
-    <div id="cartItemsList"></div>
-    <div class="checkout-total" id="checkoutTotal">Total: R$ 0,00</div>
-    <form id="checkoutForm">
-      <div class="form-group"><input type="text" placeholder="Nome completo" id="nomeCliente" required></div>
-      <div class="form-group"><input type="email" placeholder="E-mail" id="emailCliente" required></div>
-      <div class="form-group"><input type="text" placeholder="Endereço completo (rua, número, bairro, CEP)" id="endereco" required></div>
-      <div class="form-group">
-        <select id="pagamento" required>
-          <option value="">Selecione a forma de pagamento</option>
-          <option value="pix">Pix (5% desconto)</option>
-          <option value="cartao">Cartão de Crédito</option>
-          <option value="boleto">Boleto Bancário</option>
-        </select>
-      </div>
-      <button type="submit" class="btn-finalizar">Finalizar Compra</button>
-    </form>
-  </div>
-</div>
-
-<script>
-  // ========== PRODUTOS COM DESCRIÇÕES DETALHADAS ==========
-  const produtosReais = [
-    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", temPromocao: true, descricao: "Papel couchê 90g, acabamento fosco. Ideal para produtos de higiene, cosméticos e embalagens pequenas. Alta aderência e impressão nítida." },
-    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", temPromocao: true, descricao: "Formato retangular médio. Perfeita para rótulos de potes, frascos e caixas. Versátil, com boa resistência à umidade." },
-    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", temPromocao: false, descricao: "Formato alongado, excelente para identificação de produtos longos ou para uso como etiqueta de preço. Acabamento brilho." },
-    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", temPromocao: true, descricao: "Tamanho compacto, ideal para etiquetas de ingredientes, códigos de barra e dados técnicos. Papel couchê fosco de alta qualidade." },
-    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", temPromocao: true, descricao: "Formato quadrado versátil. Excelente para logotipos, selos de qualidade e embalagens criativas. Impressão em alta definição." },
-    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", temPromocao: false, descricao: "Modelo retangular alongado, ótimo para etiquetas de envio ou identificação de pastas. Adesivo permanente de alta fixação." },
-    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", temPromocao: true, descricao: "Tamanho clássico para etiquetas de preço, promoções e informações de produtos. Acabamento fosco com excelente aderência." },
-    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", temPromocao: true, descricao: "Formato reduzido, indicado para etiquetas de lote, validade e pequenas instruções. Papel couchê com gramatura 80g." },
-    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", temPromocao: true, descricao: "Formato quadrado pequeno, ideal para selos personalizados, adesivos de marca e brindes. Impressão nítida e corte preciso." },
-    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", temPromocao: true, descricao: "Formato retangular estreito. Perfeito para etiquetas de código de barras, numeração ou frases curtas. Alta resistência." },
-    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", temPromocao: false, descricao: "Formato médio-grande, ideal para rótulos de produtos em embalagens maiores, como caixas e frascos de 500ml a 1L." },
-    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", temPromocao: true, descricao: "Formato ultracompacto. Indicado para etiquetas de código de barras, preços promocionais e identificação de itens pequenos." },
-    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", temPromocao: false, descricao: "Formato retangular grande. Perfeito para etiquetas de envio, instruções de uso e rótulos principais de produtos." },
-    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", temPromocao: true, descricao: "Mini etiqueta, ótima para identificação de amostras, prazos de validade ou etiquetas de organização. Papel couchê fosco." },
-    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", temPromocao: false, descricao: "Formato amplo, recomendado para etiquetas de destaque, informações nutricionais ou comunicação visual em embalagens." },
-    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", temPromocao: false, descricao: "Formato quadrado grande. Ideal para selos promocionais, adesivos de fechamento e rótulos quadrados de alto impacto." },
-    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", temPromocao: false, descricao: "Formato retângulo grande, perfeito para etiquetas de logística, envio de encomendas e etiquetas de endereçamento. Papel couchê resistente." }
-  ];
-
-  let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
-
-  function saveCart() {
-    localStorage.setItem('sticker_cart', JSON.stringify(cart));
-    updateCartCount();
-    renderCartModal();
-  }
-
-  function updateCartCount() {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.querySelectorAll('.cart-count').forEach(el => el.innerText = totalItems);
-  }
-
-  function addToCart(productId) {
-    const product = produtosReais.find(p => p.id === productId);
-    if (!product) return;
-    const existing = cart.find(item => item.id === productId);
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push({
-        id: product.id,
-        name: product.nome,
-        price: product.preco,
-        quantity: 1,
-        img: product.img
-      });
-    }
-    saveCart();
-    showToast(`${product.nome} adicionado ao carrinho!`);
-  }
-
-  function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    saveCart();
-  }
-
-  function updateQuantity(productId, delta) {
-    const item = cart.find(i => i.id === productId);
-    if (item) {
-      item.quantity += delta;
-      if (item.quantity <= 0) {
-        removeFromCart(productId);
-      } else {
-        saveCart();
-      }
-    }
-  }
-
-  function renderCartModal() {
-    const container = document.getElementById('cartItemsList');
-    if (!container) return;
-    if (cart.length === 0) {
-      container.innerHTML = '<p style="text-align:center; padding:20px;">Seu carrinho está vazio.</p>';
-      document.getElementById('checkoutTotal').innerText = 'Total: R$ 0,00';
-      return;
-    }
-    let html = '';
-    let total = 0;
-    cart.forEach(item => {
-      const subtotal = item.price * item.quantity;
-      total += subtotal;
-      html += `
-        <div class="cart-item">
-          <div class="cart-item-info">
-            <div class="cart-item-name">${item.name}</div>
-            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
-          </div>
-          <div class="cart-item-qty">
-            <button class="qty-minus" data-id="${item.id}">-</button>
-            <span>${item.quantity}</span>
-            <button class="qty-plus" data-id="${item.id}">+</button>
-            <i class="fas fa-trash-alt cart-item-remove" data-id="${item.id}"></i>
-          </div>
+      <div class="row-fluid">
+        <div class="lista-redes span3 hidden-phone">
+          <ul>
+            <li><a href="#" target="_blank" aria-label="Facebook"><i class="icon-facebook"></i></a></li>
+            <li><a href="#" target="_blank" aria-label="Instagram"><i class="icon-instagram"></i></a></li>
+          </ul>
         </div>
-      `;
-    });
-    container.innerHTML = html;
-    document.getElementById('checkoutTotal').innerHTML = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
-    // attach events
-    document.querySelectorAll('.qty-minus').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = parseInt(btn.dataset.id);
-        updateQuantity(id, -1);
-      });
-    });
-    document.querySelectorAll('.qty-plus').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = parseInt(btn.dataset.id);
-        updateQuantity(id, 1);
-      });
-    });
-    document.querySelectorAll('.cart-item-remove').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = parseInt(btn.dataset.id);
-        removeFromCart(id);
-      });
-    });
-  }
+        <div class="canais-contato span9">
+          <ul>
+            <li class="hidden-phone">
+              <a href="#modalContato" data-toggle="modal" data-target="#modalContato">
+                <i class="icon-comment"></i> Fale Conosco
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  function showToast(msg) {
-    const toast = document.createElement('div');
-    toast.innerText = msg;
-    toast.style.position = 'fixed';
-    toast.style.bottom = '20px';
-    toast.style.right = '20px';
-    toast.style.backgroundColor = '#2c9b77';
-    toast.style.color = 'white';
-    toast.style.padding = '12px 20px';
-    toast.style.borderRadius = '40px';
-    toast.style.zIndex = '2000';
-    toast.style.fontSize = '14px';
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2000);
-  }
-
-  function renderizarProdutos(filtroTexto = "") {
-    const container = document.getElementById("product-list");
-    if (!container) return;
-    let produtosFiltrados = produtosReais;
-    if (filtroTexto.trim() !== "") {
-      const termo = filtroTexto.toLowerCase();
-      produtosFiltrados = produtosReais.filter(p => p.nome.toLowerCase().includes(termo) || p.descricao.toLowerCase().includes(termo));
-    }
-    if (produtosFiltrados.length === 0) {
-      container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px;"><i class="fas fa-search" style="font-size:48px; color:#ccc;"></i><p style="margin-top:16px;">Nenhum produto encontrado para "${filtroTexto}".</p></div>`;
-      return;
-    }
-    container.innerHTML = produtosFiltrados.map(prod => {
-      const temPromocao = prod.temPromocao && prod.precoAntigo;
-      const precoFormatado = prod.preco.toFixed(2).replace('.', ',');
-      const descontoPercentual = temPromocao ? Math.round(((prod.precoAntigo - prod.preco) / prod.precoAntigo) * 100) : 0;
-      return `
-        <div class="product-card">
-          <div class="product-img">
-            <img src="${prod.img}" alt="${prod.nome}" loading="lazy" onerror="this.src='https://placehold.co/300x300/EAEFF4/2c9b77?text=Couchê'">
-          </div>
-          <div class="product-info">
-            <div class="product-name">${prod.nome}</div>
-            <div class="product-desc"><i class="fas fa-info-circle"></i> ${prod.descricao}</div>
-            <div class="price-wrapper">
-              ${temPromocao ? `<span class="old-price">R$ ${prod.precoAntigo.toFixed(2).replace('.', ',')}</span>` : ''}
-              <span class="current-price">R$ ${precoFormatado}</span>
-              ${temPromocao ? `<span class="discount-badge">-${descontoPercentual}%</span>` : ''}
+  <div class="conteiner-principal">
+    <div id="cabecalho" class="logo-centro">
+      <div class="atalhos-mobile visible-phone fundo-secundario borda-principal">
+        <ul>
+          <li><a href="#" class="icon-home"> </a></li>
+          <li class="fundo-principal"><a href="#" class="icon-shopping-cart"> </a></li>
+          <li><a href="#" class="icon-user"> </a></li>
+          <li class="vazia"><span>&nbsp;</span></li>
+        </ul>
+      </div>
+      <div class="conteiner">
+        <div class="row-fluid">
+          <div class="conteudo-topo span3 hidden-phone">
+            <div class="superior row-fluid">
+              <div class="span12">
+                <a href="#" class="bem-vindo cor-secundaria menu-user-welcome">
+                  Bem-vindo, <span class="cor-principal">identifique-se</span> para fazer pedidos
+                </a>
+              </div>
             </div>
-            <button class="btn-buy" data-id="${prod.id}"><i class="fas fa-cart-plus"></i> Comprar</button>
+            <div class="inferior row-fluid">
+              <div class="span12">
+                <div class="busca borda-alpha">
+                  <form id="form-buscar" action="/buscar" method="get">
+                    <input id="auto-complete" type="text" name="q" placeholder="Digite o que você procura" value="" autocomplete="off" maxlength="255" />
+                    <button class="botao botao-busca icon-search fundo-secundario" aria-label="Buscar"></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <h2 class="logo cor-secundaria">
+              <a href="#" title="Etiquetas e Acessórios">
+                <img src="https://via.placeholder.com/400x100?text=Etiquetas+e+Acessórios" alt="Etiquetas e Acessórios" style="max-width: 100%; height: auto;" />
+              </a>
+            </h2>
+          </div>
+          <div class="conteudo-topo span3 hidden-phone">
+            <div class="superior row-fluid">
+              <div class="span12">
+                <ul class="acoes-conta">
+                  <li><i class="icon-list fundo-principal"></i><a href="#" class="cor-secundaria">Meus Pedidos</a></li>
+                  <li><i class="icon-user fundo-principal"></i><a href="#" class="cor-secundaria">Minha Conta</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="inferior row-fluid">
+              <div class="span12">
+                <div class="carrinho vazio">
+                  <a href="#"><i class="icon-shopping-cart fundo-principal"></i><span class="titulo cor-secundaria vazio-text">Carrinho vazio</span></a>
+                  <div class="carrinho-interno-ajax"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      `;
-    }).join('');
-    document.querySelectorAll('.btn-buy').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = parseInt(btn.dataset.id);
-        addToCart(id);
-      });
-    });
-  }
+        <div class="conteudo-topo visible-phone">
+          <div class="span12 busca-mobile">
+            <a href="javascript:;" class="atalho-menu visible-phone icon-th botao principal"> </a>
+            <div class="busca borda-alpha">
+              <form id="form-buscar-mobile" action="/buscar" method="get">
+                <input type="text" name="q" placeholder="Digite o que você procura" value="" maxlength="255" />
+                <button class="botao botao-busca icon-search fundo-secundario" aria-label="Buscar"></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="menu superior">
+          <ul class="nivel-um">
+            <li class="categoria-id-22574926 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Páscoa</strong></a></li>
+            <li class="categoria-id-19552435 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Etiquetas para Impressão</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-23224445 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Personalizados</strong></a></li>
+            <li class="categoria-id-23390035 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Kits Promocionais</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-19504411 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Etiquetas Adesivas</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-19344336 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Sacolas</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-18142566 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Promoções</strong></a></li>
+            <li class="categoria-id-23215017 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Saquinhos de Presente</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-19440769 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Cartões de Agradecimento</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-22761142 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Placa e Papéis</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+            <li class="categoria-id-19506635 com-filho borda-principal"><a href="#"><strong class="titulo cor-secundaria">Diversos</strong><i class="icon-chevron-down fundo-secundario"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <span id="delimitadorBarra"></span>
+    </div>
 
-  function setupBusca() {
-    const inputBusca = document.getElementById('searchInput');
-    const btnBusca = document.getElementById('searchButton');
-    const executarBusca = () => renderizarProdutos(inputBusca.value);
-    btnBusca.addEventListener('click', executarBusca);
-    inputBusca.addEventListener('keyup', (e) => {
-      if (e.key === 'Enter') executarBusca();
-    });
-  }
+    <div class="secao-banners">
+      <div class="conteiner">
+        <div class="banner cheio">
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="flexslider">
+                <ul class="slides">
+                  <li><img src="https://via.placeholder.com/1920x400?text=Banner+Páscoa" alt="Páscoa" /></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  function setupModals() {
-    const contactModal = document.getElementById('contactModal');
-    const openContact = document.getElementById('openContactModal');
-    const closeContact = contactModal.querySelector('.close-modal');
-    openContact.addEventListener('click', (e) => { e.preventDefault(); contactModal.style.display = 'flex'; });
-    closeContact.addEventListener('click', () => { contactModal.style.display = 'none'; });
-    window.addEventListener('click', (e) => { if (e.target === contactModal) contactModal.style.display = 'none'; });
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Mensagem enviada com sucesso! Em breve retornamos.');
-      contactModal.style.display = 'none';
-      contactForm.reset();
-    });
+    <div id="corpo">
+      <div class="conteiner">
+        <div class="breadcrumbs borda-alpha">
+          <ul><li><a href="#"><i class="icon-home"></i>Página inicial</a></li><li><strong class="cor-secundaria">Páscoa</strong></li></ul>
+        </div>
+        <div class="secao-principal row-fluid sem-coluna">
+          <div class="coluna span3">
+            <div class="menu lateral">
+              <ul class="nivel-um"><li class="categoria-id-22574926 ativo borda-principal"><a href="#"><strong class="titulo cor-secundaria">Páscoa</strong></a></li></ul>
+            </div>
+            <div class="menu lateral outras">
+              <ul class="nivel-um">
+                <li class="categoria-id-19552435 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Etiquetas para Impressão</strong></a></li>
+                <li class="categoria-id-23224445 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Personalizados</strong></a></li>
+                <li class="categoria-id-23390035 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Kits Promocionais</strong></a></li>
+                <li class="categoria-id-19504411 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Etiquetas Adesivas</strong></a></li>
+                <li class="categoria-id-19344336 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Sacolas</strong></a></li>
+                <li class="categoria-id-18142566 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Promoções</strong></a></li>
+                <li class="categoria-id-23215017 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Saquinhos de Presente</strong></a></li>
+                <li class="categoria-id-19440769 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Cartões de Agradecimento</strong></a></li>
+                <li class="categoria-id-22761142 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Placa e Papéis</strong></a></li>
+                <li class="categoria-id-19506635 borda-principal"><a href="#"><strong class="titulo cor-secundaria">Diversos</strong></a></li>
+              </ul>
+            </div>
+            <div class="lateral outras filtro-coluna faceta-preco">
+              <div class="filtro lista borda-principal">
+                <h4 class="titulo cor-secundaria">Filtrar por Preço</h4>
+                <div class="atributo-lista">
+                  <ul><li><a href="#" rel="nofollow"><label>de R$ 0,00 até R$ 24,99 <small>(9)</small></label></a></li><li><a href="#" rel="nofollow"><label>de R$ 50,00 até R$ 69,99 <small>(2)</small></label></a></li></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conteudo span9">
+            <div class="ordenar-listagem topo borda-alpha">
+              <div class="row-fluid"><div class="span6 clearfix"><div><div class="input-append"><label for="botaoOrdenar">Relevância</label><div class="btn-group"><button class="btn dropdown-toggle" id="botaoOrdenar" data-toggle="dropdown"><i class="icon-caret-down"></i></button><ul class="dropdown-menu pull-right"><li><a href="#" rel="nofollow"><i class="icon-sort-by-attributes-alt"></i>Relevância</a></li><li><a href="#" rel="nofollow"><i class="icon-font"></i>Ordem alfabética</a></li><li><a href="#" rel="nofollow"><i class="icon-shopping-cart"></i>Mais vendidos</a></li><li><a href="#" rel="nofollow"><i class="icon-dollar"></i>Menor preço</a></li><li><a href="#" rel="nofollow"><i class="icon-dollar"></i>Maior preço</a></li></ul></div></div></div></div></div>
+            </div>
+            <h1 class="titulo cor-secundaria">Páscoa</h1>
+            <div id="listagemProdutos" class="listagem borda-alpha">
+              <ul data-produtos-linha="4">
+                <li class="listagem-linha"><ul class="row-fluid">
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Etiqueta+Páscoa+1" alt="Etiqueta Páscoa 1" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">120 Etiquetas Adesivas de Páscoa - Modelo 1</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Etiqueta+Páscoa+2" alt="Etiqueta Páscoa 2" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">120 Etiquetas Adesivas de Páscoa - Modelo 2</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Cartão+Páscoa+3" alt="Cartão Páscoa 3" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Cartão de Feliz Páscoa 99X88cm C/25 und. - Modelo 3</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 11,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 11,30</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Cartão+Páscoa+2" alt="Cartão Páscoa 2" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Cartão de Feliz Páscoa 99X88cm C/25 und. - Modelo 2</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 9,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 9,40</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                </ul></li>
+                <li class="listagem-linha"><ul class="row-fluid">
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Cartão+Páscoa+1" alt="Cartão Páscoa 1" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Cartão de Feliz Páscoa 99X88cm C/25 und. - Modelo 1</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 9,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 9,40</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Tag+Kraft+1" alt="Tag Kraft 1" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Tag Papel Kraft 4,5x4,5 - 100% Páscoa C/ 120 UND - Modelo 1</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Tag+Kraft+2" alt="Tag Kraft 2" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Tag Papel Kraft 4,5x4,5 - 100% Páscoa C/ 120 UND - Modelo 2</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Tag+Kraft+3" alt="Tag Kraft 3" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Tag Papel Kraft 4,5x4,5 - 100% Páscoa C/ 120 UND - Modelo 3</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                </ul></li>
+                <li class="listagem-linha"><ul class="row-fluid">
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Papel+Seda+1" alt="Papel Seda 1" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Papel de Seda Estampado Feliz Páscoa 60x40mm – C/ 50 Folhas - Modelo 1</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal">R$ 65,90</strong></div><div><span class="preco-parcela">até 3x de <strong class="cor-secundaria">R$ 21,96</strong> sem juros</span></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 62,60</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Papel+Seda+2" alt="Papel Seda 2" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">Papel de Seda Estampado Feliz Páscoa 60x40mm – C/ 50 Folhas - Modelo 2</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal">R$ 65,90</strong></div><div><span class="preco-parcela">até 3x de <strong class="cor-secundaria">R$ 21,96</strong> sem juros</span></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 62,60</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                  <li class="span3"><div class="listagem-item"><div class="imagem-produto"><img loading="lazy" src="https://via.placeholder.com/300x300?text=Etiqueta+Páscoa+3" alt="Etiqueta Páscoa 3" /></div><div class="info-produto"><a href="#" class="nome-produto cor-secundaria">120 Etiquetas Adesivas de Páscoa - Modelo 3</a><div><div class="preco-produto destaque-avista"><div><strong class="preco-promocional cor-principal titulo">R$ 14,90</strong></div><span class="desconto-a-vista">ou <strong class="cor-principal titulo">R$ 14,16</strong> via Pix</span></div></div></div><div class="acoes-produto hidden-phone"><a href="#" class="botao botao-comprar principal"><i class="icon-shopping-cart"></i>Ver mais</a></div></div></li>
+                </ul></li>
+              </ul>
+            </div>
+            <div class="ordenar-listagem rodape borda-alpha"><div class="row-fluid"></div></div>
+          </div>
+        </div>
+        <div class="secao-secundaria"></div>
+      </div>
+    </div>
 
-    const checkoutModal = document.getElementById('checkoutModal');
-    const openCheckout = document.getElementById('openCheckoutBtn');
-    const closeCheckout = checkoutModal.querySelector('.close-checkout');
-    openCheckout.addEventListener('click', () => {
-      renderCartModal();
-      checkoutModal.style.display = 'flex';
-    });
-    closeCheckout.addEventListener('click', () => { checkoutModal.style.display = 'none'; });
-    window.addEventListener('click', (e) => { if (e.target === checkoutModal) checkoutModal.style.display = 'none'; });
-    const checkoutForm = document.getElementById('checkoutForm');
-    checkoutForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (cart.length === 0) {
-        alert('Seu carrinho está vazio. Adicione produtos antes de finalizar.');
-        return;
-      }
-      const nome = document.getElementById('nomeCliente').value.trim();
-      const email = document.getElementById('emailCliente').value.trim();
-      const endereco = document.getElementById('endereco').value.trim();
-      const pagamento = document.getElementById('pagamento').value;
-      if (!nome || !email || !endereco || !pagamento) {
-        alert('Preencha todos os campos obrigatórios.');
-        return;
-      }
-      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      let finalTotal = total;
-      let mensagemPagamento = '';
-      if (pagamento === 'pix') {
-        finalTotal = total * 0.95;
-        mensagemPagamento = ` com 5% de desconto no Pix, totalizando R$ ${finalTotal.toFixed(2)}`;
-      } else if (pagamento === 'cartao') {
-        mensagemPagamento = ' no cartão de crédito (parcelamento sujeito a juros)';
-      } else {
-        mensagemPagamento = ' via boleto bancário (gerado em até 2h)';
-      }
-      alert(`Pedido finalizado com sucesso!\n\nCliente: ${nome}\nE-mail: ${email}\nEndereço: ${endereco}\nForma de pagamento: ${pagamento.toUpperCase()}\nTotal${mensagemPagamento}.\n\nEntraremos em contato para confirmar o envio.`);
-      cart = [];
-      saveCart();
-      checkoutModal.style.display = 'none';
-      checkoutForm.reset();
-      renderizarProdutos(document.getElementById('searchInput').value);
-    });
-  }
+    <div id="barraNewsletter" class="hidden-phone posicao-rodape">
+      <div class="conteiner">
+        <div class="row-fluid">
+          <div class="span">
+            <div class="componente newsletter borda-principal">
+              <div class="interno">
+                <span class="titulo cor-secundaria"><i class="icon-envelope-alt"></i>FRETE GRÁTIS - SP CAPITAL*</span>
+                <div class="interno-conteudo">
+                  <p class="texto-newsletter newsletter-cadastro">* ACIMA DE R$ 129,90 PARA CAPITAL DE SÃO PAULO</p>
+                  <div class="newsletter-cadastro input-conteiner">
+                    <input type="text" name="email" placeholder="Digite seu email" />
+                    <button class="botao botao-input fundo-principal icon-chevron-right newsletter-assinar" aria-label="Assinar"></button>
+                  </div>
+                  <div class="newsletter-confirmacao hide"><i class="icon-ok icon-3x"></i><span>OBRIGADO :)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  renderizarProdutos();
-  setupBusca();
-  setupModals();
-  updateCartCount();
-  renderCartModal();
-</script>
+    <div id="rodape">
+      <div class="institucional fundo-secundario">
+        <div class="conteiner">
+          <div class="row-fluid">
+            <div class="span9">
+              <div class="row-fluid">
+                <div class="span4 links-rodape links-rodape-categorias">
+                  <span class="titulo">Categorias</span>
+                  <ul><li><a href="#">Etiquetas para Impressão</a></li><li><a href="#">Páscoa</a></li><li><a href="#">Personalizados</a></li><li><a href="#">Kits Promocionais</a></li><li><a href="#">Etiquetas Adesivas</a></li><li><a href="#">Sacolas</a></li><li><a href="#">Promoções</a></li><li><a href="#">Saquinhos de Presente</a></li><li><a href="#">Cartões de Agradecimento</a></li><li><a href="#">Placa e Papéis</a></li><li><a href="#">Diversos</a></li></ul>
+                </div>
+                <div class="span4 links-rodape links-rodape-paginas">
+                  <span class="titulo">Conteúdo</span>
+                  <ul><li><a href="#modalContato" data-toggle="modal">Fale Conosco</a></li><li><a href="#">Pagamento e Envio</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Política de Trocas e Devoluções</a></li><li><a href="#">Sobre Nós</a></li><li><a href="#">Termos de Uso</a></li></ul>
+                </div>
+                <div class="span4 sobre-loja-rodape">
+                  <span class="titulo">Sobre a loja</span>
+                  <p>Etiquetas e acessórios para sua empresa. Tudo que você precisa para vender mais!</p>
+                </div>
+              </div>
+              <div class="span12 visible-phone"><span class="titulo">Contato</span><ul><li><a href="#modalContato" data-toggle="modal"><i class="icon-comment"></i> Fale Conosco</a></li></ul></div>
+            </div>
+            <div class="span3">
+              <div class="redes-sociais borda-principal">
+                <span class="titulo cor-secundaria hidden-phone">Social</span>
+                <div class="lista-redes"><ul><li><a href="#" target="_blank" aria-label="Facebook"><i class="icon-facebook"></i></a></li><li><a href="#" target="_blank" aria-label="Instagram"><i class="icon-instagram"></i></a></li></ul></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagamento-selos">
+        <div class="conteiner">
+          <div class="row-fluid">
+            <div class="span4 pagamento"><span class="titulo cor-secundaria">Pague com</span><ul class="bandeiras-pagamento"><li><i class="icone-pagamento visa" title="visa"></i></li><li><i class="icone-pagamento mastercard" title="mastercard"></i></li><li><i class="icone-pagamento elo" title="elo"></i></li><li><i class="icone-pagamento diners" title="diners"></i></li><li><i class="icone-pagamento amex" title="amex"></i></li></ul><ul class="gateways-rodape"><li class="col-md-3"><img loading="lazy" src="https://cdn.awsli.com.br/production/static/img/formas-de-pagamento/pix-logo.png?v=4378076" alt="Pix" /></li></ul></div>
+            <div class="span4 selos"><span class="titulo cor-secundaria">Selos</span><ul><li><img loading="lazy" src="https://cdn.awsli.com.br/production/static/img/struct/stamp_encryptssl.png" alt="Site Seguro"></li></ul></div>
+          </div>
+        </div>
+      </div>
+      <div style="background-color: #fff; border-top: 1px solid #ddd; position: relative; z-index: 10; font-size: 11px;">
+        <div class="conteiner">
+          <div class="row-fluid">
+            <div class="span12" style="text-align: center;"><p style="margin-bottom: 0;">&copy; Todos os direitos reservados. 2026</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="barraTopo" class="hidden-phone">
+    <div class="conteiner">
+      <div class="row-fluid">
+        <div class="span3"><h4 class="titulo"><a href="#" class="cor-secundaria">Etiquetas e Acessórios</a></h4></div>
+        <div class="span3"><div class="canais-contato"><ul><li><a href="#modalContato" data-toggle="modal"><i class="icon-comment"></i>Fale Conosco</a></li></ul></div></div>
+        <div class="span6"><div class="row-fluid"><div class="busca borda-alpha span6"><form action="/buscar" method="get"><input type="text" name="q" placeholder="Digite o que você procura" maxlength="255" /><button class="botao botao-busca botao-input icon-search fundo-secundario" aria-label="Buscar"></button></form></div><div class="span6"><div class="carrinho vazio"><a href="#"><i class="icon-shopping-cart fundo-principal"></i><span class="titulo cor-secundaria vazio-text">Carrinho vazio</span></a></div></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalContato" class="modal hide" tabindex="-1" aria-hidden="true">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button><span class="titulo cor-secundaria">Fale Conosco</span> Preencha o formulário abaixo.</div>
+    <form action="#" method="post" class="form-horizontal"><div class="modal-body borda-principal"><div class="contato-loading"><i class="icon-spin icon-refresh"></i></div></div></form>
+  </div>
+
+  <div id="avisoCookies">
+    <div class="conteiner">
+      <p>Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="#" target="_blank"><strong>Política de Privacidade</strong></a>.</p>
+      <button type="button" id="btn-aceito-cookies" class="botao principal">Entendi</button>
+    </div>
+  </div>
+  <script>$(function(){try{if(!$.cookie('AvisoCookie')){$('body').addClass('mostrarAvisoCookie');}$('#avisoCookies #btn-aceito-cookies').click(function(){$.cookie('AvisoCookie',new Date().getTime(),{expires:365,path:'/'});$('body').removeClass('mostrarAvisoCookie');});}catch(e){}});</script>
+
+  <style>
+    :root {--csCorPrincipal:#201f1f;--csBotoes:#30a77e;--cTitulos:#990000;--cMenu:#000000;--cMenuTxt:#ffffff;--cTarja:#990000;--cPreco:#38761d;}
+    body, input, select, .titulo, button, textarea {font-family:'Open Sans',sans-serif;}
+    .produto-sku, .hide {display:none;}
+  </style>
 </body>
 </html>
