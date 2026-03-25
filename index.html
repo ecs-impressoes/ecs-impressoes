@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ========== CSS GLOBAL (Base StickerStore) ========== */
+    /* ========== CSS GLOBAL ========== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background-color: #f8f9fc; color: #1e2a3a; }
     a { text-decoration: none; color: inherit; }
@@ -40,15 +40,17 @@
     .categoria-header h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 700; }
     .categoria-header p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
     .section-title { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: #1e2a3a; border-left: 5px solid #2c9b77; padding-left: 16px; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; margin-bottom: 60px; }
-    .product-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 1px solid #edf2f7; display: flex; flex-direction: column; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin-bottom: 60px; }
+    .product-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 1px solid #edf2f7; display: flex; flex-direction: column; height: 100%; }
     .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
     .product-img { background: #fafcff; text-align: center; padding: 20px; height: 210px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f2f5; }
     .product-img img { max-width: 100%; max-height: 170px; object-fit: contain; transition: transform 0.2s; }
     .product-card:hover .product-img img { transform: scale(1.02); }
     .product-info { padding: 18px 16px 20px; flex: 1; display: flex; flex-direction: column; }
-    .product-name { font-weight: 600; font-size: 15px; margin-bottom: 8px; color: #1e2a3a; line-height: 1.4; min-height: 60px; }
-    .price-wrapper { margin: 8px 0 12px; }
+    .product-name { font-weight: 700; font-size: 16px; margin-bottom: 6px; color: #1e2a3a; line-height: 1.3; }
+    .product-desc { font-size: 12px; color: #5a6e7c; line-height: 1.4; margin: 8px 0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .product-desc i { color: #2c9b77; font-size: 11px; width: 16px; }
+    .price-wrapper { margin: 10px 0 12px; }
     .old-price { font-size: 13px; color: #8e9eae; text-decoration: line-through; margin-right: 10px; }
     .current-price { font-weight: 800; font-size: 22px; color: #2c9b77; letter-spacing: -0.3px; }
     .discount-badge { background: #e74c3c; color: white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 30px; display: inline-block; margin-left: 8px; vertical-align: middle; }
@@ -73,10 +75,11 @@
       .header-grid { flex-direction: column; align-items: stretch; }
       .search-bar { max-width: 100%; }
       .nav-menu { justify-content: center; gap: 16px; }
-      .product-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
       .categoria-header h1 { font-size: 1.8rem; }
-      .product-name { font-size: 13px; min-height: 50px; }
+      .product-name { font-size: 14px; }
       .current-price { font-size: 18px; }
+      .product-desc { font-size: 10px; }
     }
     .filtro-info { background: #eef2fa; padding: 12px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; font-size: 14px; color: #1e466e; }
     .filtro-info i { margin-right: 8px; }
@@ -145,9 +148,7 @@
   </div>
 
   <h2 class="section-title">Produtos em destaque</h2>
-  <div class="product-grid" id="product-list">
-    <!-- Os produtos serão carregados via JS com dados reais -->
-  </div>
+  <div class="product-grid" id="product-list"></div>
 </div>
 
 <footer>
@@ -218,28 +219,27 @@
 </div>
 
 <script>
-  // ========== PRODUTOS REAIS - ETIQUETAS ADESIVAS COUCHÊ (baseado em catálogo real) ==========
+  // ========== PRODUTOS COM DESCRIÇÕES DETALHADAS ==========
   const produtosReais = [
-    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", link: "#", temPromocao: true },
-    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", link: "#", temPromocao: true },
-    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", link: "#", temPromocao: false },
-    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", link: "#", temPromocao: true },
-    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", link: "#", temPromocao: true },
-    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", link: "#", temPromocao: false },
-    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", link: "#", temPromocao: true },
-    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", link: "#", temPromocao: true },
-    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", link: "#", temPromocao: true },
-    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", link: "#", temPromocao: true },
-    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", link: "#", temPromocao: false },
-    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", link: "#", temPromocao: true },
-    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", link: "#", temPromocao: false },
-    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", link: "#", temPromocao: true },
-    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", link: "#", temPromocao: false },
-    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", link: "#", temPromocao: false },
-    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", link: "#", temPromocao: false }
+    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", link: "#", temPromocao: true, descricao: "Papel couchê 90g, acabamento fosco. Ideal para produtos de higiene, cosméticos e embalagens pequenas. Alta aderência e impressão nítida." },
+    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", link: "#", temPromocao: true, descricao: "Formato retangular médio. Perfeita para rótulos de potes, frascos e caixas. Versátil, com boa resistência à umidade." },
+    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", link: "#", temPromocao: false, descricao: "Formato alongado, excelente para identificação de produtos longos ou para uso como etiqueta de preço. Acabamento brilho." },
+    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", link: "#", temPromocao: true, descricao: "Tamanho compacto, ideal para etiquetas de ingredientes, códigos de barra e dados técnicos. Papel couchê fosco de alta qualidade." },
+    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", link: "#", temPromocao: true, descricao: "Formato quadrado versátil. Excelente para logotipos, selos de qualidade e embalagens criativas. Impressão em alta definição." },
+    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", link: "#", temPromocao: false, descricao: "Modelo retangular alongado, ótimo para etiquetas de envio ou identificação de pastas. Adesivo permanente de alta fixação." },
+    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", link: "#", temPromocao: true, descricao: "Tamanho clássico para etiquetas de preço, promoções e informações de produtos. Acabamento fosco com excelente aderência." },
+    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", link: "#", temPromocao: true, descricao: "Formato reduzido, indicado para etiquetas de lote, validade e pequenas instruções. Papel couchê com gramatura 80g." },
+    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", link: "#", temPromocao: true, descricao: "Formato quadrado pequeno, ideal para selos personalizados, adesivos de marca e brindes. Impressão nítida e corte preciso." },
+    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", link: "#", temPromocao: true, descricao: "Formato retangular estreito. Perfeito para etiquetas de código de barras, numeração ou frases curtas. Alta resistência." },
+    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", link: "#", temPromocao: false, descricao: "Formato médio-grande, ideal para rótulos de produtos em embalagens maiores, como caixas e frascos de 500ml a 1L." },
+    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", link: "#", temPromocao: true, descricao: "Formato ultracompacto. Indicado para etiquetas de código de barras, preços promocionais e identificação de itens pequenos." },
+    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", link: "#", temPromocao: false, descricao: "Formato retangular grande. Perfeito para etiquetas de envio, instruções de uso e rótulos principais de produtos." },
+    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", link: "#", temPromocao: true, descricao: "Mini etiqueta, ótima para identificação de amostras, prazos de validade ou etiquetas de organização. Papel couchê fosco." },
+    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", link: "#", temPromocao: false, descricao: "Formato amplo, recomendado para etiquetas de destaque, informações nutricionais ou comunicação visual em embalagens." },
+    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", link: "#", temPromocao: false, descricao: "Formato quadrado grande. Ideal para selos promocionais, adesivos de fechamento e rótulos quadrados de alto impacto." },
+    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", link: "#", temPromocao: false, descricao: "Formato retângulo grande, perfeito para etiquetas de logística, envio de encomendas e etiquetas de endereçamento. Papel couchê resistente." }
   ];
 
-  // Função para renderizar grid de produtos (com suporte a busca)
   function renderizarProdutos(filtroTexto = "") {
     const container = document.getElementById("product-list");
     if (!container) return;
@@ -247,7 +247,7 @@
     let produtosFiltrados = produtosReais;
     if (filtroTexto.trim() !== "") {
       const termo = filtroTexto.toLowerCase();
-      produtosFiltrados = produtosReais.filter(p => p.nome.toLowerCase().includes(termo));
+      produtosFiltrados = produtosReais.filter(p => p.nome.toLowerCase().includes(termo) || p.descricao.toLowerCase().includes(termo));
     }
     
     if (produtosFiltrados.length === 0) {
@@ -267,6 +267,9 @@
           </div>
           <div class="product-info">
             <div class="product-name">${prod.nome}</div>
+            <div class="product-desc">
+              <i class="fas fa-info-circle"></i> ${prod.descricao}
+            </div>
             <div class="price-wrapper">
               ${temPromocao ? `<span class="old-price">R$ ${prod.precoAntigo.toFixed(2).replace('.', ',')}</span>` : ''}
               <span class="current-price">R$ ${precoFormatado}</span>
@@ -281,35 +284,12 @@
     }).join('');
   }
 
-  // Atualizar contador do carrinho (simulação visual)
   function atualizarCarrinhoCount() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho_sticker')) || [];
     let totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
     document.querySelectorAll('.cart-count').forEach(el => el.innerText = totalItens);
   }
 
-  // Adicionar ao carrinho (função mock, mas mantém contador)
-  function adicionarAoCarrinho(produtoId, nome, preco) {
-    let carrinho = JSON.parse(localStorage.getItem('carrinho_sticker')) || [];
-    const existing = carrinho.find(item => item.id === produtoId);
-    if (existing) {
-      existing.quantidade += 1;
-    } else {
-      carrinho.push({ id: produtoId, nome, preco, quantidade: 1 });
-    }
-    localStorage.setItem('carrinho_sticker', JSON.stringify(carrinho));
-    atualizarCarrinhoCount();
-    // feedback rápido
-    const msg = document.createElement('div');
-    msg.innerText = '✔️ Produto adicionado!';
-    msg.style.position = 'fixed'; msg.style.bottom = '20px'; msg.style.right = '20px';
-    msg.style.backgroundColor = '#2c9b77'; msg.style.color = 'white'; msg.style.padding = '10px 20px';
-    msg.style.borderRadius = '30px'; msg.style.zIndex = '999'; msg.style.fontSize = '14px';
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 2000);
-  }
-
-  // Evento de busca dinâmica
   function setupBusca() {
     const inputBusca = document.getElementById('searchInput');
     const btnBusca = document.getElementById('searchButton');
@@ -320,7 +300,6 @@
     });
   }
 
-  // Modal contato
   function setupModal() {
     const modal = document.getElementById('contactModal');
     const openBtn = document.getElementById('openContactModal');
@@ -339,13 +318,11 @@
     }
   }
 
-  // Simular redirecionamento carrinho vazio
   document.getElementById('cartLink')?.addEventListener('click', (e) => {
     e.preventDefault();
     alert('Seu carrinho de compras está integrado com os produtos. Clique em "Ver mais" para comprar diretamente.');
   });
 
-  // Inicialização
   renderizarProdutos();
   setupBusca();
   setupModal();
