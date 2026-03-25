@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+  <title>Etiquetas Adesivas Couchê | StickerStore</title>
+  <meta name="description" content="Etiquetas adesivas Couchê de alta qualidade para sua marca. Diversos tamanhos, pronta entrega e qualidade premium.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== CSS GLOBAL (Base StickerStore) ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #f8f9fc; color: #1e2a3a; }
+    a { text-decoration: none; color: inherit; }
+    .conteiner { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+    .top-bar { background: #2c3e50; color: #ecf0f1; font-size: 13px; padding: 8px 0; }
+    .top-bar .conteiner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .social-links a { color: #ecf0f1; margin-right: 16px; font-size: 14px; transition: opacity 0.2s; }
+    .social-links a:hover { opacity: 0.8; }
+    .contact-links i { margin-right: 6px; }
+    .contact-links a { margin-left: 20px; color: #ecf0f1; }
+    .main-header { background: white; padding: 20px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .header-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .logo a { font-size: 28px; font-weight: 800; color: #1e466e; letter-spacing: -0.5px; }
+    .logo span { color: #2c9b77; }
+    .search-bar { flex: 1; max-width: 400px; display: flex; border: 1px solid #ddd; border-radius: 40px; overflow: hidden; background: #fff; }
+    .search-bar input { flex: 1; padding: 10px 16px; border: none; outline: none; font-size: 14px; }
+    .search-bar button { background: #1e466e; border: none; padding: 0 18px; color: white; cursor: pointer; transition: background 0.2s; }
+    .search-bar button:hover { background: #2c9b77; }
+    .cart-icon { position: relative; font-size: 24px; color: #1e466e; }
+    .cart-count { position: absolute; top: -8px; right: -12px; background: #2c9b77; color: white; font-size: 11px; font-weight: bold; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .main-nav { background: #1e2a3a; margin-top: 0; }
+    .nav-menu { display: flex; list-style: none; gap: 32px; padding: 0; margin: 0; flex-wrap: wrap; }
+    .nav-menu li a { display: inline-block; padding: 14px 0; color: #ecf0f1; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+    .nav-menu li a:hover { color: #2c9b77; }
+    .breadcrumbs { margin: 24px 0 20px; font-size: 14px; color: #5a6e7c; }
+    .breadcrumbs a { color: #1e466e; font-weight: 500; }
+    .breadcrumbs i { margin-right: 6px; }
+    .categoria-header { background: linear-gradient(135deg, #1e466e, #2c9b77); color: white; padding: 48px 20px; border-radius: 28px; text-align: center; margin: 20px 0 32px; }
+    .categoria-header h1 { font-size: 2.4rem; margin-bottom: 12px; font-weight: 700; }
+    .categoria-header p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+    .section-title { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: #1e2a3a; border-left: 5px solid #2c9b77; padding-left: 16px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; margin-bottom: 60px; }
+    .product-card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.25s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.04); border: 1px solid #edf2f7; display: flex; flex-direction: column; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+    .product-img { background: #fafcff; text-align: center; padding: 20px; height: 210px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f2f5; }
+    .product-img img { max-width: 100%; max-height: 170px; object-fit: contain; transition: transform 0.2s; }
+    .product-card:hover .product-img img { transform: scale(1.02); }
+    .product-info { padding: 18px 16px 20px; flex: 1; display: flex; flex-direction: column; }
+    .product-name { font-weight: 600; font-size: 15px; margin-bottom: 8px; color: #1e2a3a; line-height: 1.4; min-height: 60px; }
+    .price-wrapper { margin: 8px 0 12px; }
+    .old-price { font-size: 13px; color: #8e9eae; text-decoration: line-through; margin-right: 10px; }
+    .current-price { font-weight: 800; font-size: 22px; color: #2c9b77; letter-spacing: -0.3px; }
+    .discount-badge { background: #e74c3c; color: white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 30px; display: inline-block; margin-left: 8px; vertical-align: middle; }
+    .btn-buy { display: inline-block; background: #1e466e; color: white; padding: 10px 12px; border-radius: 40px; font-size: 14px; font-weight: 600; text-align: center; transition: background 0.2s; border: none; cursor: pointer; width: 100%; margin-top: 8px; }
+    .btn-buy:hover { background: #2c9b77; }
+    footer { background: #1e2a3a; color: #cbd5e1; margin-top: 60px; padding-top: 48px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding-bottom: 40px; }
+    .footer-col h4 { color: white; margin-bottom: 16px; font-size: 18px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: #cbd5e1; transition: color 0.2s; }
+    .footer-col a:hover { color: #2c9b77; }
+    .footer-bottom { border-top: 1px solid #2d3e4e; text-align: center; padding: 20px 0; font-size: 13px; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+    .modal-content { background: white; max-width: 500px; width: 90%; border-radius: 20px; padding: 24px; position: relative; }
+    .modal-header { display: flex; justify-content: space-between; margin-bottom: 16px; }
+    .close-modal { background: none; border: none; font-size: 24px; cursor: pointer; }
+    .form-group { margin-bottom: 16px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit; }
+    .btn-submit { background: #1e466e; color: white; border: none; padding: 12px; width: 100%; border-radius: 40px; font-weight: 600; cursor: pointer; }
+    @media (max-width: 768px) {
+      .header-grid { flex-direction: column; align-items: stretch; }
+      .search-bar { max-width: 100%; }
+      .nav-menu { justify-content: center; gap: 16px; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+      .categoria-header h1 { font-size: 1.8rem; }
+      .product-name { font-size: 13px; min-height: 50px; }
+      .current-price { font-size: 18px; }
+    }
+    .filtro-info { background: #eef2fa; padding: 12px 18px; border-radius: 50px; display: inline-block; margin-bottom: 20px; font-size: 14px; color: #1e466e; }
+    .filtro-info i { margin-right: 8px; }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="conteiner">
+    <div class="social-links">
+      <a href="https://facebook.com/stickerstore" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/stickerstore" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/stickerstore" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="contact-links">
+      <a href="#" id="openContactModal"><i class="far fa-comment-dots"></i> Fale Conosco</a>
+    </div>
+  </div>
+</div>
+
+<div class="main-header">
+  <div class="conteiner">
+    <div class="header-grid">
+      <div class="logo">
+        <a href="index.html">Sticker<span>Store</span></a>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Buscar etiquetas...">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+      <a href="#" class="cart-icon" id="cartLink">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main-nav">
+  <div class="conteiner">
+    <ul class="nav-menu">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Etiquetas para Impressão</a></li>
+      <li><a href="#">Etiquetas Adesivas</a></li>
+      <li><a href="#">Etiquetas Adesivas Couchê</a></li>
+      <li><a href="#">Sacolas e Embalagens</a></li>
+      <li><a href="#">Kits Promocionais</a></li>
+      <li><a href="#">Promoções</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="conteiner">
+  <div class="breadcrumbs">
+    <a href="#"><i class="fas fa-home"></i> Início</a> &nbsp;/&nbsp; 
+    <a href="#">Etiquetas Adesivas</a> &nbsp;/&nbsp; 
+    <strong>Etiquetas Adesivas Couchê</strong>
+  </div>
+
+  <div class="categoria-header">
+    <h1>Etiquetas Adesivas Couchê</h1>
+    <p>Alta qualidade, aderência excepcional e acabamento premium. Perfeitas para produtos, embalagens e identidade visual da sua marca. Pronta entrega em diversos tamanhos.</p>
+  </div>
+
+  <div class="filtro-info">
+    <i class="fas fa-tags"></i> 17 produtos encontrados | Couchê fosco/brilho | Alta definição
+  </div>
+
+  <h2 class="section-title">Produtos em destaque</h2>
+  <div class="product-grid" id="product-list">
+    <!-- Os produtos serão carregados via JS com dados reais -->
+  </div>
+</div>
+
+<footer>
+  <div class="conteiner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Sobre a loja</h4>
+        <ul>
+          <li><a href="#">Quem somos</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#">Etiquetas Adesivas Couchê</a></li>
+          <li><a href="#">Sacolas Personalizadas</a></li>
+          <li><a href="#">Kits Promocionais</a></li>
+          <li><a href="#">Etiquetas para Impressão</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="#">Central de Ajuda</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes sociais</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="conteiner">
+      <p>&copy; StickerStore - Todos os direitos reservados. 2026 | Produtos originais Rocha Etiquetas</p>
+      <div style="margin-top: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <i class="fab fa-cc-visa fa-2x"></i>
+        <i class="fab fa-cc-mastercard fa-2x"></i>
+        <i class="fab fa-cc-amex fa-2x"></i>
+        <i class="fas fa-barcode fa-2x"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Fale Conosco</h3>
+      <button class="close-modal">&times;</button>
+    </div>
+    <form id="contactForm">
+      <div class="form-group"><input type="text" placeholder="Seu nome" required></div>
+      <div class="form-group"><input type="email" placeholder="Seu e-mail" required></div>
+      <div class="form-group"><textarea rows="4" placeholder="Sua mensagem"></textarea></div>
+      <button type="submit" class="btn-submit">Enviar mensagem</button>
+      <p style="font-size:12px; margin-top:12px; color:#666;">Responderemos em até 24h úteis.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ========== PRODUTOS REAIS - ETIQUETAS ADESIVAS COUCHÊ (baseado no catálogo Rocha Etiquetas) ==========
+  const produtosReais = [
+    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-34x23", temPromocao: true },
+    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x70", temPromocao: true },
+    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x30", temPromocao: false },
+    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x30", temPromocao: true },
+    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x50", temPromocao: true },
+    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-90x30", temPromocao: false },
+    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-32x22", temPromocao: true },
+    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-32x18", temPromocao: true },
+    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-30x30", temPromocao: true },
+    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-30x15", temPromocao: true },
+    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x50", temPromocao: false },
+    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-27x15", temPromocao: true },
+    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x70", temPromocao: false },
+    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-22x14", temPromocao: true },
+    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x80", temPromocao: false },
+    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x100", temPromocao: false },
+    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x150", temPromocao: false }
+  ];
+
+  // Função para renderizar grid de produtos (com suporte a busca)
+  function renderizarProdutos(filtroTexto = "") {
+    const container = document.getElementById("product-list");
+    if (!container) return;
+    
+    let produtosFiltrados = produtosReais;
+    if (filtroTexto.trim() !== "") {
+      const termo = filtroTexto.toLowerCase();
+      produtosFiltrados = produtosReais.filter(p => p.nome.toLowerCase().includes(termo));
+    }
+    
+    if (produtosFiltrados.length === 0) {
+      container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px;"><i class="fas fa-search" style="font-size:48px; color:#ccc;"></i><p style="margin-top:16px;">Nenhum produto encontrado para "${filtroTexto}".</p></div>`;
+      return;
+    }
+    
+    container.innerHTML = produtosFiltrados.map(prod => {
+      const temPromocao = prod.temPromocao && prod.precoAntigo;
+      const precoFormatado = prod.preco.toFixed(2).replace('.', ',');
+      const descontoPercentual = temPromocao ? Math.round(((prod.precoAntigo - prod.preco) / prod.precoAntigo) * 100) : 0;
+      
+      return `
+        <div class="product-card">
+          <div class="product-img">
+            <img src="${prod.img}" alt="${prod.nome}" loading="lazy" onerror="this.src='https://placehold.co/300x300/EAEFF4/2c9b77?text=Couchê'">
+          </div>
+          <div class="product-info">
+            <div class="product-name">${prod.nome}</div>
+            <div class="price-wrapper">
+              ${temPromocao ? `<span class="old-price">R$ ${prod.precoAntigo.toFixed(2).replace('.', ',')}</span>` : ''}
+              <span class="current-price">R$ ${precoFormatado}</span>
+              ${temPromocao ? `<span class="discount-badge">-${descontoPercentual}%</span>` : ''}
+            </div>
+            <a href="${prod.link}" target="_blank" class="btn-buy" data-id="${prod.id}">
+              <i class="fas fa-external-link-alt"></i> Ver mais
+            </a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Atualizar contador do carrinho (simulação visual)
+  function atualizarCarrinhoCount() {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho_sticker')) || [];
+    let totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+    document.querySelectorAll('.cart-count').forEach(el => el.innerText = totalItens);
+  }
+
+  // Adicionar ao carrinho (função mock, mas mantém contador)
+  function adicionarAoCarrinho(produtoId, nome, preco) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho_sticker')) || [];
+    const existing = carrinho.find(item => item.id === produtoId);
+    if (existing) {
+      existing.quantidade += 1;
+    } else {
+      carrinho.push({ id: produtoId, nome, preco, quantidade: 1 });
+    }
+    localStorage.setItem('carrinho_sticker', JSON.stringify(carrinho));
+    atualizarCarrinhoCount();
+    // feedback rápido
+    const msg = document.createElement('div');
+    msg.innerText = '✔️ Produto adicionado!';
+    msg.style.position = 'fixed'; msg.style.bottom = '20px'; msg.style.right = '20px';
+    msg.style.backgroundColor = '#2c9b77'; msg.style.color = 'white'; msg.style.padding = '10px 20px';
+    msg.style.borderRadius = '30px'; msg.style.zIndex = '999'; msg.style.fontSize = '14px';
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 2000);
+  }
+
+  // Evento de busca dinâmica
+  function setupBusca() {
+    const inputBusca = document.getElementById('searchInput');
+    const btnBusca = document.getElementById('searchButton');
+    const executarBusca = () => renderizarProdutos(inputBusca.value);
+    btnBusca.addEventListener('click', executarBusca);
+    inputBusca.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') executarBusca();
+    });
+  }
+
+  // Modal contato
+  function setupModal() {
+    const modal = document.getElementById('contactModal');
+    const openBtn = document.getElementById('openContactModal');
+    const closeBtn = document.querySelector('.close-modal');
+    if (openBtn) openBtn.addEventListener('click', (e) => { e.preventDefault(); modal.style.display = 'flex'; });
+    if (closeBtn) closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Mensagem enviada com sucesso! Em breve retornamos.');
+        modal.style.display = 'none';
+        form.reset();
+      });
+    }
+  }
+
+  // Simular redirecionamento carrinho vazio
+  document.getElementById('cartLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Seu carrinho de compras está integrado com os produtos Rocha Etiquetas. Clique em "Ver mais" para comprar diretamente.');
+  });
+
+  // Inicialização
+  renderizarProdutos();
+  setupBusca();
+  setupModal();
+  atualizarCarrinhoCount();
+</script>
+</body>
+</html>
