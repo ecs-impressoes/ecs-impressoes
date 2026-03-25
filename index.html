@@ -86,9 +86,9 @@
 <div class="top-bar">
   <div class="conteiner">
     <div class="social-links">
-      <a href="https://facebook.com/stickerstore" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://instagram.com/stickerstore" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/stickerstore" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
     <div class="contact-links">
       <a href="#" id="openContactModal"><i class="far fa-comment-dots"></i> Fale Conosco</a>
@@ -100,7 +100,7 @@
   <div class="conteiner">
     <div class="header-grid">
       <div class="logo">
-        <a href="index.html">Sticker<span>Store</span></a>
+        <a href="#">Sticker<span>Store</span></a>
       </div>
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Buscar etiquetas...">
@@ -190,7 +190,7 @@
   </div>
   <div class="footer-bottom">
     <div class="conteiner">
-      <p>&copy; StickerStore - Todos os direitos reservados. 2026 | Produtos originais Rocha Etiquetas</p>
+      <p>&copy; StickerStore - Todos os direitos reservados. 2026 | Produtos de alta qualidade</p>
       <div style="margin-top: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
         <i class="fab fa-cc-visa fa-2x"></i>
         <i class="fab fa-cc-mastercard fa-2x"></i>
@@ -218,25 +218,25 @@
 </div>
 
 <script>
-  // ========== PRODUTOS REAIS - ETIQUETAS ADESIVAS COUCHÊ (baseado no catálogo Rocha Etiquetas) ==========
+  // ========== PRODUTOS REAIS - ETIQUETAS ADESIVAS COUCHÊ (baseado em catálogo real) ==========
   const produtosReais = [
-    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-34x23", temPromocao: true },
-    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x70", temPromocao: true },
-    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x30", temPromocao: false },
-    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x30", temPromocao: true },
-    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-50x50", temPromocao: true },
-    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-90x30", temPromocao: false },
-    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-32x22", temPromocao: true },
-    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-32x18", temPromocao: true },
-    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-30x30", temPromocao: true },
-    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-30x15", temPromocao: true },
-    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x50", temPromocao: false },
-    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-27x15", temPromocao: true },
-    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x70", temPromocao: false },
-    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-22x14", temPromocao: true },
-    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x80", temPromocao: false },
-    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x100", temPromocao: false },
-    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", link: "https://www.rochaetiquetas.com.br/etiqueta-adesiva-couch-100x150", temPromocao: false }
+    { id: 1, nome: "Etiqueta adesiva Couchê 34x23", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267001663faf489f3c5.jpg", link: "#", temPromocao: true },
+    { id: 2, nome: "Etiqueta adesiva Couchê 50x70", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725013450a4a3e9.jpg", link: "#", temPromocao: true },
+    { id: 3, nome: "Etiqueta adesiva Couchê 100x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267073371877f9fe629.jpg", link: "#", temPromocao: false },
+    { id: 4, nome: "Etiqueta adesiva Couchê 50x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2670725158f41c0a68f.jpg", link: "#", temPromocao: true },
+    { id: 5, nome: "Etiqueta adesiva Couchê 50x50", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267072510b85255c5f6.jpg", link: "#", temPromocao: true },
+    { id: 6, nome: "Etiqueta adesiva Couchê 90x30", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26707243313b825424a.jpg", link: "#", temPromocao: false },
+    { id: 7, nome: "Etiqueta adesiva Couchê 32x22", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26700126481e7a995b8.jpg", link: "#", temPromocao: true },
+    { id: 8, nome: "Etiqueta adesiva Couchê 32x18", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/267000049e2e429d328.jpg", link: "#", temPromocao: true },
+    { id: 9, nome: "Etiqueta adesiva Couchê 30x30", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669985333f62f58976.jpg", link: "#", temPromocao: true },
+    { id: 10, nome: "Etiqueta adesiva Couchê 30x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669943892b82fe9593.jpg", link: "#", temPromocao: true },
+    { id: 11, nome: "Etiqueta adesiva Couchê 100x50", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669939475bbc33b13f.jpg", link: "#", temPromocao: false },
+    { id: 12, nome: "Etiqueta adesiva Couchê 27x15", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/26699384705d1b520fa.jpg", link: "#", temPromocao: true },
+    { id: 13, nome: "Etiqueta adesiva Couchê 100x70", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/2669932555e6409c5be.jpg", link: "#", temPromocao: false },
+    { id: 14, nome: "Etiqueta adesiva Couchê 22x14", preco: 19.00, precoAntigo: 20.90, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993232daa9db4b90.jpg", link: "#", temPromocao: true },
+    { id: 15, nome: "Etiqueta adesiva Couchê 100x80", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266993123a25735b0f3.jpg", link: "#", temPromocao: false },
+    { id: 16, nome: "Etiqueta adesiva Couchê 100x100", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992579abbc40cd32.jpg", link: "#", temPromocao: false },
+    { id: 17, nome: "Etiqueta de Envio Adesiva Couchê 100x150", preco: 20.90, precoAntigo: null, img: "https://cdn.awsli.com.br/300x300/2492/2492037/produto/266992464adae54b265.jpg", link: "#", temPromocao: false }
   ];
 
   // Função para renderizar grid de produtos (com suporte a busca)
@@ -342,7 +342,7 @@
   // Simular redirecionamento carrinho vazio
   document.getElementById('cartLink')?.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('Seu carrinho de compras está integrado com os produtos Rocha Etiquetas. Clique em "Ver mais" para comprar diretamente.');
+    alert('Seu carrinho de compras está integrado com os produtos. Clique em "Ver mais" para comprar diretamente.');
   });
 
   // Inicialização
